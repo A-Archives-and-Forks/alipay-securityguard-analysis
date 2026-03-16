@@ -1,0 +1,17 @@
+# Binary files - don't commit to git
+*.so
+*.dex
+*.apk
+*.zip
+*.arsc
+
+# Keep module structure but not binaries
+sg_unpacked/modules/*/lib/
+sg_unpacked/modules/*/classes.dex
+sg_unpacked/modules/*/resources.arsc
+sg_unpacked/raw/
+sg_unpacked/native_libs/
+
+# OS files
+.DS_Store
+*.swp

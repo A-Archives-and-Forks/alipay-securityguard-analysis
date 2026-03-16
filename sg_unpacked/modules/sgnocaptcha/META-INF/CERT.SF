@@ -1,0 +1,23 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: cjSkx61WXMba1bJOISqWYIY4T/w=
+X-Android-APK-Signed: 2
+
+Name: AndroidManifest.xml
+SHA1-Digest: VBjSjN0DBUny9xOCUVIzxzwvMss=
+
+Name: classes.dex
+SHA1-Digest: tDk56dSLCGbVOvE72uBqfN/9mow=
+
+Name: lib/arm64-v8a/libsgnocaptchaso-6.5.8.so
+SHA1-Digest: IdZgddk4J8CxeubZI8p2bkqI2dU=
+
+Name: res/anim/anim_fit.xml
+SHA1-Digest: HPv4gfEaI6NlXBq4yE8x9N7R+JM=
+
+Name: res/layout/activity_verify.xml
+SHA1-Digest: LXby5IplGg7o/2GTVnZCvvbFgG8=
+
+Name: resources.arsc
+SHA1-Digest: /gWm3vTvLrEibAL1yaoVvfkxryI=
+

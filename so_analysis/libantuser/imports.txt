@@ -1,0 +1,191 @@
+[Imports]
+nth vaddr      bind   type lib name
+―――――――――――――――――――――――――――――――――――
+1   0x001c1fc0 GLOBAL FUNC     __cxa_finalize
+2   0x001c1fd0 GLOBAL FUNC     __cxa_atexit
+3   0x001c1fe0 GLOBAL FUNC     __register_atfork
+4   ---------- GLOBAL FUNC     __gxx_personality_v0
+5   0x001c2040 GLOBAL FUNC     free
+6   0x001c2050 GLOBAL FUNC     sym.imp.operator delete(void*)
+7   0x001c2060 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::operator=(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&)
+8   0x001c2090 GLOBAL FUNC     __vsnprintf_chk
+9   0x001c20a0 GLOBAL FUNC     __cxa_begin_catch
+10  0x001c20b0 GLOBAL FUNC     sym.imp.std::terminate()
+11  0x001c20c0 GLOBAL FUNC     __cxa_allocate_exception
+12  0x001c20d0 GLOBAL FUNC     __cxa_free_exception
+13  ---------- GLOBAL FUNC     sym.imp.std::length_error::~length_error()
+14  0x001c20e0 GLOBAL FUNC     __cxa_throw
+15  0x001c20f0 GLOBAL FUNC     sym.imp.std::logic_error::logic_error(char const*)
+16  0x001c2100 GLOBAL FUNC     sym.imp.std::bad_array_new_length::bad_array_new_length()
+17  ---------- GLOBAL FUNC     sym.imp.std::bad_array_new_length::~bad_array_new_length()
+18  0x001c2110 GLOBAL FUNC     sym.imp.operator new(unsigned long)
+19  0x001c2120 GLOBAL FUNC     strlen
+20  0x001c2130 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::insert(unsigned long, char const*)
+21  0x001c2140 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_weak_count::__release_weak()
+22  0x001c2150 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > std::__ndk1::operator+<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >(char const*, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&)
+23  0x001c2160 GLOBAL FUNC     sym.imp.std::__ndk1::recursive_mutex::lock()
+24  0x001c2170 GLOBAL FUNC     sym.imp.std::__ndk1::recursive_mutex::unlock()
+25  0x001c2180 GLOBAL FUNC     sym.imp.std::exception::~exception()
+26  ---------- GLOBAL FUNC     sym.imp.std::exception::what() const
+27  0x001c2190 GLOBAL FUNC     __dynamic_cast
+28  0x001c21a0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::sentry::sentry(std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >&)
+29  0x001c21b0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::sentry::~sentry()
+30  0x001c21c0 GLOBAL FUNC     sym.imp.std::__ndk1::ios_base::__set_badbit_and_consider_rethrow()
+31  0x001c21d0 GLOBAL FUNC     __cxa_end_catch
+32  0x001c21e0 GLOBAL FUNC     sym.imp.std::__ndk1::ios_base::getloc() const
+33  0x001c21f0 GLOBAL FUNC     sym.imp.std::__ndk1::locale::~locale()
+34  0x001c2200 GLOBAL FUNC     sym.imp.std::__ndk1::locale::use_facet(std::__ndk1::locale::id&) const
+35  0x001c2210 GLOBAL FUNC     sym.imp.std::__ndk1::ios_base::clear(unsigned int)
+36  0x001c2220 GLOBAL FUNC     sym.imp.std::__ndk1::to_string(int)
+37  0x001c2230 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::append(char const*)
+38  0x001c2240 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::append(char const*, unsigned long)
+39  0x001c2250 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(void const*)
+40  0x001c2260 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(bool)
+41  0x001c2270 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(int)
+42  0x001c2280 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(long)
+43  0x001c2290 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(long long)
+44  0x001c22a0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(unsigned long)
+45  0x001c22b0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(unsigned long long)
+46  0x001c22c0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::operator<<(double)
+47  0x001c22d0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::put(char)
+48  0x001c22e0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::flush()
+49  0x001c22f0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_stringbuf<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::str() const
+50  0x001c2300 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::resize(unsigned long, char)
+51  0x001c2310 GLOBAL FUNC     vsnprintf
+52  ---------- GLOBAL OBJ      sym.imp.std::__ndk1::cout
+53  ---------- GLOBAL OBJ      sym.imp.vtable for __cxxabiv1::__class_type_info
+54  ---------- GLOBAL OBJ      sym.imp.typeinfo for std::length_error
+55  ---------- GLOBAL OBJ      sym.imp.vtable for std::length_error
+56  ---------- GLOBAL OBJ      sym.imp.typeinfo for std::bad_array_new_length
+57  ---------- GLOBAL OBJ      sym.imp.vtable for __cxxabiv1::__si_class_type_info
+58  ---------- GLOBAL OBJ      sym.imp.typeinfo for std::exception
+59  ---------- GLOBAL OBJ      sym.imp.std::__ndk1::ctype<char>::id
+60  0x001c2320 GLOBAL FUNC     __android_log_print
+61  0x001c2360 GLOBAL FUNC     memcmp
+62  0x001c2370 GLOBAL FUNC     sym.imp.std::__ndk1::mutex::lock()
+63  0x001c2380 GLOBAL FUNC     sym.imp.std::__ndk1::condition_variable::wait(std::__ndk1::unique_lock<std::__ndk1::mutex>&)
+64  0x001c2390 GLOBAL FUNC     sym.imp.std::__ndk1::__throw_system_error(int, char const*)
+65  0x001c23a0 GLOBAL FUNC     sym.imp.std::__ndk1::mutex::unlock()
+66  0x001c23b0 GLOBAL FUNC     sym.imp.std::__ndk1::condition_variable::~condition_variable()
+67  0x001c23c0 GLOBAL FUNC     sym.imp.std::__ndk1::mutex::~mutex()
+68  0x001c23d0 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_weak_count::lock()
+69  ---------- GLOBAL FUNC     sym.imp.std::__ndk1::bad_weak_ptr::~bad_weak_ptr()
+70  0x001c23e0 GLOBAL FUNC     sym.imp.std::__ndk1::condition_variable::notify_all()
+71  ---------- GLOBAL OBJ      sym.imp.typeinfo for std::__ndk1::bad_weak_ptr
+72  ---------- GLOBAL OBJ      sym.imp.vtable for std::__ndk1::bad_weak_ptr
+73  0x001c2410 GLOBAL FUNC     __cxa_guard_acquire
+74  0x001c2420 GLOBAL FUNC     sym.imp.std::__ndk1::recursive_mutex::recursive_mutex()
+75  0x001c2430 GLOBAL FUNC     sym.imp.std::__ndk1::recursive_mutex::~recursive_mutex()
+76  0x001c2440 GLOBAL FUNC     __cxa_guard_abort
+77  0x001c2450 GLOBAL FUNC     __cxa_guard_release
+78  0x001c2460 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_weak_count::~__shared_weak_count()
+79  ---------- GLOBAL OBJ      sym.imp.typeinfo for std::__ndk1::__shared_weak_count
+80  0x001c2520 GLOBAL FUNC     calloc
+81  ---------- GLOBAL FUNC     sym.imp.std::__ndk1::__shared_weak_count::__get_deleter(std::type_info const&) const
+82  0x001c25d0 GLOBAL FUNC     pthread_once
+83  0x001c25e0 GLOBAL FUNC     pthread_mutex_lock
+84  0x001c25f0 GLOBAL FUNC     pthread_mutex_unlock
+85  0x001c2600 GLOBAL FUNC     pthread_getspecific
+86  0x001c2610 GLOBAL FUNC     sym.imp.operator new[](unsigned long)
+87  0x001c2620 GLOBAL FUNC     strnlen
+88  0x001c2630 GLOBAL FUNC     strcmp
+89  0x001c2690 GLOBAL FUNC     pthread_setspecific
+90  0x001c26a0 GLOBAL FUNC     malloc
+91  0x001c26d0 GLOBAL FUNC     pthread_key_create
+92  0x001c26e0 GLOBAL FUNC     __strlen_chk
+93  0x001c2700 GLOBAL FUNC     strdup
+94  ---------- GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::~basic_string()
+95  0x001c2720 GLOBAL FUNC     __cxa_thread_atexit
+96  0x001c2730 GLOBAL FUNC     __cxa_demangle
+97  0x001c2740 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ostream<char, std::__ndk1::char_traits<char> >::~basic_ostream()
+98  0x001c2750 GLOBAL FUNC     sym.imp.std::__ndk1::basic_ios<char, std::__ndk1::char_traits<char> >::~basic_ios()
+99  0x001c2760 GLOBAL FUNC     sym.imp.std::__ndk1::ios_base::init(void*)
+100 0x001c2770 GLOBAL FUNC     sym.imp.std::__ndk1::basic_streambuf<char, std::__ndk1::char_traits<char> >::basic_streambuf()
+101 0x001c2780 GLOBAL FUNC     pthread_self
+102 ---------- GLOBAL OBJ      sym.imp.vtable for __cxxabiv1::__pointer_type_info
+103 ---------- GLOBAL OBJ      sym.imp.vtable for __cxxabiv1::__vmi_class_type_info
+104 ---------- GLOBAL OBJ      sym.imp.vtable for std::__ndk1::basic_ostringstream<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >
+105 ---------- GLOBAL OBJ      sym.imp.VTT for std::__ndk1::basic_ostringstream<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >
+106 ---------- GLOBAL OBJ      sym.imp.vtable for std::__ndk1::basic_stringbuf<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >
+107 ---------- GLOBAL OBJ      sym.imp.vtable for __cxxabiv1::__function_type_info
+108 ---------- GLOBAL FUNC     sym.imp.std::out_of_range::~out_of_range()
+109 0x001c2790 GLOBAL FUNC     __cxa_rethrow
+110 ---------- GLOBAL OBJ      sym.imp.typeinfo for std::out_of_range
+111 ---------- GLOBAL OBJ      sym.imp.vtable for std::out_of_range
+112 0x001c27a0 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_mutex_base::__shared_mutex_base()
+113 0x001c27b0 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_mutex_base::lock()
+114 0x001c27c0 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_mutex_base::unlock()
+115 0x001c27d0 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_mutex_base::lock_shared()
+116 0x001c27e0 GLOBAL FUNC     sym.imp.std::__ndk1::__shared_mutex_base::unlock_shared()
+117 0x001c27f0 GLOBAL FUNC     sym.imp.std::__ndk1::chrono::system_clock::now()
+118 0x001c2800 GLOBAL FUNC     sym.imp.std::__ndk1::to_string(long)
+119 0x001c2810 GLOBAL FUNC     memchr
+120 ---------- GLOBAL FUNC     __cxa_pure_virtual
+121 0x001c2820 GLOBAL FUNC     sym.imp.std::__ndk1::to_string(unsigned long)
+122 0x001c2830 GLOBAL FUNC     sym.imp.std::__ndk1::chrono::steady_clock::now()
+123 0x001c2840 GLOBAL FUNC     srand
+124 0x001c2850 GLOBAL FUNC     time
+125 0x001c2860 GLOBAL FUNC     rand
+126 0x001c29a0 GLOBAL FUNC     strtol
+127 0x001c29b0 GLOBAL FUNC     strtoul
+128 0x001c29c0 GLOBAL FUNC     strtoll
+129 0x001c29d0 GLOBAL FUNC     strtoull
+130 0x001c29e0 GLOBAL FUNC     strtof
+131 0x001c29f0 GLOBAL FUNC     strtod
+132 0x001c2a00 GLOBAL FUNC     sym.imp.std::__ndk1::to_string(double)
+133 0x001c2a10 GLOBAL FUNC     sym.imp.std::__ndk1::to_string(unsigned long long)
+134 0x001c2a20 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::insert(unsigned long, char const*, unsigned long)
+135 0x001c2a30 GLOBAL FUNC     sym.imp.std::__ndk1::locale::locale()
+136 0x001c2a40 GLOBAL FUNC     sym.imp.std::__ndk1::locale::locale(std::__ndk1::locale const&)
+137 0x001c2a50 GLOBAL FUNC     sym.imp.std::__ndk1::regex_error::regex_error(std::__ndk1::regex_constants::error_type)
+138 ---------- GLOBAL FUNC     sym.imp.std::__ndk1::regex_error::~regex_error()
+139 ---------- GLOBAL FUNC     sym.imp.std::__ndk1::__match_any_but_newline<char>::__exec(std::__ndk1::__state<char>&) const
+140 0x001c2a60 GLOBAL FUNC     sym.imp.std::__ndk1::locale::name() const
+141 0x001c2a70 GLOBAL FUNC     sym.imp.std::__ndk1::__get_collation_name(char const*)
+142 0x001c2a80 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::operator=(char)
+143 0x001c2a90 GLOBAL FUNC     sym.imp.std::__ndk1::__get_classname(char const*, bool)
+144 ---------- GLOBAL OBJ      sym.imp.std::__ndk1::collate<char>::id
+145 ---------- GLOBAL OBJ      sym.imp.typeinfo for std::__ndk1::regex_error
+146 0x001c2aa0 GLOBAL FUNC     sym.imp.std::__ndk1::basic_streambuf<char, std::__ndk1::char_traits<char> >::~basic_streambuf()
+147 0x001c2b10 GLOBAL FUNC     sym.imp.std::__ndk1::__next_prime(unsigned long)
+148 0x001c2b20 GLOBAL FUNC     sym.imp.std::__ndk1::to_string(long long)
+149 0x001c2b40 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::erase(unsigned long, unsigned long)
+150 0x001c2b50 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::find(char, unsigned long) const
+151 0x001c2b60 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::replace(unsigned long, unsigned long, char const*, unsigned long)
+152 0x001c2b70 GLOBAL FUNC     sym.imp.std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::push_back(char)
+153 0x001c2b80 GLOBAL FUNC     sym.imp.std::__ndk1::thread::~thread()
+154 0x001c2b90 GLOBAL FUNC     sym.imp.std::__ndk1::condition_variable::notify_one()
+155 0x001c2ba0 GLOBAL FUNC     sym.imp.std::__ndk1::thread::detach()
+156 0x001c2bb0 GLOBAL FUNC     sym.imp.std::__ndk1::__call_once(unsigned long volatile&, void*, void (*)(void*))
+157 0x001c2bc0 GLOBAL FUNC     sym.imp.std::__ndk1::__thread_struct::__thread_struct()
+158 0x001c2bd0 GLOBAL FUNC     pthread_create
+159 0x001c2be0 GLOBAL FUNC     sym.imp.std::__ndk1::__thread_local_data()
+160 0x001c2bf0 GLOBAL FUNC     sym.imp.std::__ndk1::__thread_struct::~__thread_struct()
+161 0x001c2c00 GLOBAL FUNC     sym.imp.std::__ndk1::this_thread::sleep_for(std::__ndk1::chrono::duration<long long, std::__ndk1::ratio<1l, 1000000000l> > const&)
+162 0x001c2c10 GLOBAL FUNC     gettimeofday
+163 0x001c2c20 GLOBAL FUNC     sym.imp.std::__ndk1::chrono::system_clock::to_time_t(std::__ndk1::chrono::time_point<std::__ndk1::chrono::system_clock, std::__ndk1::chrono::duration<long long, std::__ndk1::ratio<1l, 1000000l> > > const&)
+164 0x001c2c30 GLOBAL FUNC     gmtime_r
+165 0x001c2c40 GLOBAL FUNC     strftime
+166 0x001c2c50 GLOBAL FUNC     strtok
+167 0x001c2c60 GLOBAL FUNC     srandom
+168 0x001c2c70 GLOBAL FUNC     random
+169 0x001c2c80 GLOBAL FUNC     __emutls_get_address
+170 0x001c2c90 GLOBAL FUNC     dl_iterate_phdr
+171 0x001c2ca0 GLOBAL FUNC     fwrite
+172 0x001c2cb0 GLOBAL FUNC     memmove
+173 0x001c2cc0 GLOBAL FUNC     strncmp
+174 0x001c2cd0 GLOBAL FUNC     fprintf
+175 0x001c2ce0 GLOBAL FUNC     __stack_chk_fail
+176 0x001c2cf0 GLOBAL FUNC     pthread_rwlock_wrlock
+177 ---------- GLOBAL OBJ      __sF
+178 0x001c2d00 GLOBAL FUNC     syscall
+179 0x001c2d10 GLOBAL FUNC     pthread_rwlock_unlock
+180 0x001c2d20 GLOBAL FUNC     memcpy
+181 0x001c2d30 GLOBAL FUNC     getauxval
+182 0x001c2d40 GLOBAL FUNC     abort
+183 0x001c2d50 GLOBAL FUNC     __system_property_get
+184 0x001c2d60 GLOBAL FUNC     getpid
+185 0x001c2d70 GLOBAL FUNC     pthread_rwlock_rdlock
+186 0x001c2d80 GLOBAL FUNC     memset
+187 0x001c2d90 GLOBAL FUNC     fflush
+

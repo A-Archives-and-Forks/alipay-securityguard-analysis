@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Built-By: Generated-by-ADT
+Created-By: Android Gradle 3.5.1
+
+Name: AndroidManifest.xml
+SHA1-Digest: JUsJfwmjSet7tJ5TIgSJOE19UiA=
+
+Name: classes.dex
+SHA1-Digest: ttur1Ynlj6U/v3BJmgTnpIh+Lm0=
+
+Name: lib/arm64-v8a/libsgmainso-6.6.230507.so
+SHA1-Digest: 8m/MXt+gqQzsucwan5ByuhP4Pv8=
+
+Name: lib/arm64-v8a/libsgmainso.ucb.so
+SHA1-Digest: eQ/VFRmvvyHhiO/MuGbSH58+4oA=
+
+Name: resources.arsc
+SHA1-Digest: Z37JqqZ01IYhZcFKlswKjJLcoQc=
+

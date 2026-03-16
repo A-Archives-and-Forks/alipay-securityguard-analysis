@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Built-By: Generated-by-ADT
+Created-By: Android Gradle 3.5.1
+
+Name: AndroidManifest.xml
+SHA1-Digest: vutYDlbSruZOCwEZlzK4vfRacPU=
+
+Name: classes.dex
+SHA1-Digest: Hrl0aA/oQ8lf6ssfy0ESxY6Ht+A=
+
+Name: lib/arm64-v8a/libsgnocaptchaso-6.5.8.so
+SHA1-Digest: HBfuOdtZRjn+Fixx9rMoZZ2+1v0=
+
+Name: res/anim/anim_fit.xml
+SHA1-Digest: Mfd3s9w8MyqSDLUAm80yijsqUuI=
+
+Name: res/layout/activity_verify.xml
+SHA1-Digest: lf7EAo3SaEiHM2vHX7C0oUjy/BY=
+
+Name: resources.arsc
+SHA1-Digest: RDjAGcCUiwPn3qwk/B/RuiuWnos=
+

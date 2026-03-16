@@ -1,0 +1,19 @@
+{
+  "apk": "Alipay_10.8.30.8000_APKPure.apk",
+  "timestamp": "2026-03-16T22:07:19Z",
+  "modules": [
+
+  ],
+  "native_libs": [
+    {"name": "libantuser.so", "size": 1901912},
+    {"name": "libAPSE_1.9.41.so", "size": 4134208},
+    {"name": "libdatabase_sqlcrypto.so", "size": 2032024},
+    {"name": "libiot-security-kernel.so", "size": 187408},
+    {"name": "libnative-v8bridge.so", "size": 439488},
+    {"name": "libopenssl.so", "size": 2857704},
+    {"name": "libsgmainso.ucb.so", "size": 80},
+    {"name": "libsgsecuritybodyso.ucb.so", "size": 96},
+    {"name": "libv8jsbridge_jsi.so", "size": 7888},
+    {"name": "libxriver-core.so", "size": 5721528}
+  ]
+}
