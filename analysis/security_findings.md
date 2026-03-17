@@ -425,3 +425,25 @@ script = session.create_script("...", runtime="v8")
 - Java bridge is only injected by stnel CLI (`/opt/homebrew/bin/stnel`)
 - For Java-level hooks, must use stnel CLI with `-l` flag
 - Python API works for native-level Interceptor hooks
+
+## AVMP Sign: Complete Status
+
+### What Works
+- `doCommand(70201, ["mwua", "sgcipher"])` → VM instance ID (Long) ✅
+- VM IDs captured: 5 different instances across sessions
+- All SG components accessible via MiddleTier classloader
+
+### What Doesn't Work (and Why)
+1. `invokeAVMP()` via Java reflection: VM is InvocationHandler Proxy, no `getClass()`
+2. `doCommand(70202, [..., Class, ...])`: stnel JS cannot serialize Class in Object[]  
+3. `doCommand(12504, [vmId, count, wrappers, index, retType])`: incorrect params crash native
+
+### Root Cause
+The AVMP invokeAVMP method requires `java.lang.Class` as a parameter (return type).
+stnel's QuickJS/V8 JS-to-JNI bridge cannot convert Class objects inside Object[] arrays.
+This is a **tooling limitation**, not a SecurityGuard protection.
+
+### Solution Path
+1. Build a custom stnel gadget (.so) that calls invokeAVMP from C/JNI
+2. Or use Xposed framework (full Java API, no JS-JNI serialization issues)
+3. Or patch stnel's bridges/java.js to handle Class objects in arrays
