@@ -249,3 +249,28 @@ but registration already completed before attach (need spawn mode).
 - Found in classloader #6 (PathClassLoader loading from libsgmain.so ZIP)
 - 27x command 70102 captured before APSE killed process
 - APSE response time: ~200ms (detects Java-level bytecode modification)
+
+## Stealth Hook SUCCESS — APSE Bypassed
+
+### Working Method
+Hook `Router.doCommand` via `Java.choose()` in SG's custom classloader:
+1. Enumerate classloaders → find loader #6 (loads JNICLibrary)
+2. `Java.choose("SecurityGuardMainPlugin")` → get live instance
+3. `instance.getRouter()` → get Router object (class: `б` Cyrillic)
+4. `Java.use(router.$className).doCommand.implementation = ...`
+
+This hooks at the Java Router level (inside SG), NOT at JNICLibrary bytecode level.
+**APSE does not detect this hook** — it only monitors native code modifications.
+
+### Captured Commands (idle state, no login)
+| Command | Count | Module | Purpose |
+|---------|-------|--------|---------|
+| 70102 | 3+ | sgmiddletier | Generic heartbeat/polling |
+| 70901 | 3+ | sgmiddletier | Periodic check |
+
+### Limitation
+Only heartbeat commands visible without login. Signing/Token/AVMP commands require authenticated session.
+
+### Complete Working Script
+Path: `/Users/anwu/Documents/code/tools/frida/sg_router_hook2.js`
+Covers all 80 known command IDs with human-readable names.
