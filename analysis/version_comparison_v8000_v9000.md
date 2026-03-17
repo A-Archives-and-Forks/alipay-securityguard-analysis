@@ -3,6 +3,7 @@
 > APK versions: v10.8.30.8000 vs v10.8.30.9000
 > SG internal version: both report 6.6.230507 (via .version.so)
 > Analysis date: 2026-03-17
+> **IMPORTANT**: Both APKs built on 2026-01-26 — pre-disclosure. Differences are build variants, NOT patches.
 
 ## Binary Size Changes
 
@@ -63,5 +64,8 @@ The following security-relevant strings present in v8000 are **absent** from v90
 ### Implication for our research:
 - Our v8000 analysis remains valid — the architecture is unchanged
 - v9000 would be harder to analyze statically due to better obfuscation
-- The timing (v9000 released after our disclosure) suggests this may be a response to our research
-- However, **no functional security fixes** are evident — just obfuscation hardening
+- **CORRECTION**: Both APKs were built on 2026-01-26 (3 weeks BEFORE our disclosure on 2026-02-16)
+- v8000 was downloaded Feb 16, v9000 downloaded Mar 15 — but build dates are identical
+- The differences are likely A/B testing variants or regional/channel builds, NOT post-disclosure patches
+- **We CANNOT claim these changes are a response to our research** — that would be factually incorrect
+- The 8000/9000 suffix is likely a channel identifier, not a sequential version number
