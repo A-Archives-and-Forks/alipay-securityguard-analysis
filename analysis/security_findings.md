@@ -170,3 +170,35 @@ The code can be fully analyzed using segment-based loading.
 3. SSL pinning: Corrected — sgmain has ZERO SSL strings, no native pinning
 
 ### Verification Status: **19/19 claims verified against source code**
+
+## Dynamic Analysis Results (emulator-5554)
+
+### Runtime Module Map
+All SG SOs confirmed loaded in memory:
+
+| Module | Runtime Size | Base Address | Status |
+|--------|-------------|--------------|--------|
+| libsgmainso-6.6.230507.so | 2432KB | 0x770436c000 | Loaded, mprotect protected |
+| libsgsecuritybodyso-6.6.230507.so | 1912KB | 0x76d0005000 | Loaded, mprotect protected |
+| libsgmiddletierso-6.6.230507.so | 1152KB | 0x778b016000 | Loaded |
+| libAPSE_1.9.41.so | 4276KB | 0x7742a8b000 | Loaded, APSE code dumped (3.5MB) |
+| **libmyhook.so** | 516KB | 0x773b20f000 | **Inline hook engine** |
+| **libSgCoreCpt.so** | 224KB | 0x77a2084000 | **New: SG Core Component** |
+| libxriver-core.so | 5668KB | 0x7710c6e000 | Loaded |
+| libBifrost.so | 5952KB | 0x770980e000 | Loaded |
+
+### Memory Protection
+- `mprotect` actively enforced by APSE/myhook on sgmain and sgsecurity code pages
+- Direct memory dump via stnel blocked by access violations
+- dd from /proc/mem partially works (APSE succeeded, sgmain blocked)
+- Modifying page permissions triggers APSE anti-tampering (timeout/crash)
+
+### JNI Hook Limitation
+- `JNICLibrary` class not accessible via default classloader
+- SG uses custom classloader loaded from ZIP modules
+- Need to enumerate classloaders to find SG classes at runtime
+
+### Previously Dumped Data (from earlier sessions)
+- 46 runtime DEX files in `/data/local/tmp/dumped_dex/`
+- 65 v9000 DEX files in `/data/local/tmp/v9000_dump/`
+- memscan tools and results available
