@@ -186,3 +186,58 @@ APK Boot
 | Self-ptrace | APSE | Block debugger attachment |
 | /proc/maps scanning | APSE | Detect Frida/Xposed/Magisk injected libraries |
 | Config-as-JPG | PkgValidUtils | Hide config in res/drawable/abc_wb_textfield_exf.jpg |
+
+## Remaining Class Analysis
+
+### C0011 (HTTP通信层) — 1491 lines
+- `m32(url, headers)` → HTTP GET请求
+- `m33(url, headers, body, contentType, connectTimeout, readTimeout)` → HTTP POST请求
+- `m34(url, dir)` → 文件下载
+- `m35(url, connectTimeout, readTimeout, method)` → 创建URLConnection
+- 特殊处理: `com.alibaba.android.rimet`(钉钉)使用TrafficStats标记
+- SSL: 使用`HttpsURLConnection`, 无自定义TrustManager(用系统默认)
+
+### HttpClientUtils (HTTP客户端工具) — 962 lines
+- 自定义错误码: 1000(空响应), 1002(异常), 1003(未知主机), 1004(SSL握手错误)
+- 默认超时: 22000ms
+- 用于SG内部的HTTP通信(数据上报、配置下载等)
+
+### MtopMethodJniBridge (MTOP协议桥) — 170 lines
+- 通过反射调用MTOP SDK(`mtopsdk.mtop.intf.Mtop`)
+- 支持`MtopBusiness`(淘宝远程业务)和`MtopBuilder`
+- API: `setApiName()`, `setApiVersion()`, `setData()`, `syncRequest()`
+- 用于SG向蚂蚁服务器发送RPC请求
+
+### DataReportJniBridge (数据上报桥) — 212 lines
+- `accsAvaiableBridge()` → 检查ACCS(长连接)是否可用
+- `orangeAvailableBridge()` → 检查Orange(A/B测试配置)是否可用
+- `mtopAvaiableBridge()` → 检查MTOP是否可用
+- Cyrillic字段名: а,б,в,г,д,е,ж,з,и,й,к,л(12个!)
+- 优先使用ACCS长连接上报, 降级到MTOP RPC, 再降级到HTTP直连
+
+### SPUtility2 (安全存储工具) — 392 lines
+- `readFromSPUnified(name, key, default)` → 统一SP读取
+- `saveToSPUnified(name, key, value, commit)` → 统一SP写入(内部用`saveToFileUnifiedForNative`)
+- `removeFromSPUnified(name, key, commit)` → 统一SP删除
+- `readSS/writeSS` → 加密安全存储
+- `rootDir()` → SG数据根目录
+- `getTempFile(name)` → 临时文件路径
+- **关键**: StaticKey等加密密钥通过此接口存储
+
+### StrategyCenter (风控策略中心) — 622 lines
+- `needFCProcessOrNot(statusCode, headers)` → 判断是否需要风控处理
+- `processFCContent(statusCode, headers, callback, headerType)` → 执行风控策略
+- 策略类型: BXUserReport(用户上报), 超时处理, 锁定异常处理
+- 处理HTTP 419/420状态码(风控拦截)
+- 支持全量处理和单条处理两种模式
+- 后台线程执行策略(`Handler` + `HandlerThread`)
+
+### UserTrackBridge (用户行为追踪桥) — 161 lines
+- sgsecurity模块的用户行为数据桥接
+- 通过反射调用主app的UT(UserTrack)SDK
+- 上报设备安全事件到蚂蚁大数据平台
+
+### C0042 (taobao DynamicDataStore适配器) — 277 lines
+- 淘宝SDK接口的DynamicDataStore实现
+- 封装sgmain的C0029(IDynamicDataStoreComponent)
+- 提供`getByteArray`, `getBoolean`, `putByteArray`等方法
