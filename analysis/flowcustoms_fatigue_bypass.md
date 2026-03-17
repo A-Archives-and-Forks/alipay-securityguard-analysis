@@ -161,3 +161,90 @@ Attacker URL → ds.alipay.com redirect (CVE-6)
 The fatigue bypass is the **4th bypass path** not previously documented.
 Combined with the 3 known bypasses, there are now **4 confirmed bypass paths**
 in SchemeLauncher.verify().
+
+---
+
+## allowLaunch() — Fully Decompiled via Smali (704 lines)
+
+JADX failed to decompile this method (342 bytecode instructions → 704 smali lines).
+Using apktool's baksmali output, the COMPLETE security decision flow is now revealed.
+
+### Security Decision Flow (11 return points)
+
+```
+allowLaunch(Uri uri) → int (0=deny, 1=allow)
+│
+├─ [1] PatchProxy check → vendor can remotely override ENTIRE method
+│
+├─ [2] isNeedVerify("SchemeNeedVerify") from SharedPreferences
+│      if FALSE → return 1 (ALLOW) — master bypass switch!
+│
+├─ [3] "inner scheme" check
+│      if internal scheme → return 1 (ALLOW)
+│
+├─ [4] Android < 5.0 check
+│      "under 5.0" → return 1 (ALLOW) — version bypass
+│
+├─ [5] Extract appId from URI query parameters
+│
+├─ [6] isMatchNewSchemeVerifyReg() — new generation regex whitelist
+│      if match → return 1 (ALLOW) — regex whitelist bypass
+│
+├─ [7] isMatchedSchemeVerifyRegBlackList() — blacklist check
+│      if match → return 0 (DENY) + log behavior
+│
+├─ [8] isMatchOldSchemeVerifyReg() — legacy regex whitelist
+│      if match → log "allowLaunch, match verifyReg online"
+│      → return 1 (ALLOW) — legacy regex bypass
+│
+├─ [9] isBundleIdInBlackList(bundleId, scheme)
+│      if in blacklist → log "allowLaunch, isInBlack="
+│      → decision based on blacklist result
+│
+├─ [10] isBundleIdInFatigueList(bundleId, scheme)
+│       if in fatigue list → log "allowLaunch, isInFatigue="
+│       → return 1 (ALLOW) — fatigue bypass (our 4th bypass)
+│       → addBehavorWhenHitFatigue() logs to analytics
+│
+└─ [11] "scheme is null" → default return
+```
+
+### Total Bypass Paths in allowLaunch (6 discovered)
+
+| # | Bypass | Type | Evidence |
+|---|--------|------|----------|
+| 1 | PatchProxy remote override | Remote | `ChangeQuickRedirect` field at method start |
+| 2 | SchemeNeedVerify=false | Config | SharedPreferences master switch |
+| 3 | Internal scheme detection | Implicit | "inner scheme" log message |
+| 4 | Android < 5.0 | Version | "under 5.0" check |
+| 5 | New/Old regex whitelist match | Whitelist | isMatchNewSchemeVerifyReg + isMatchOldSchemeVerifyReg |
+| 6 | Fatigue list match | Timing | isBundleIdInFatigueList (fatigueTime=-1 always true) |
+
+### Combined with verify() bypasses
+
+```
+verify() {
+  → isUriMatchInnerBundleId()     [bypass A — skips allowLaunch entirely]
+  → isUriMatchNewInnerRegEx()     [bypass B — skips allowLaunch entirely]
+  → allowLaunch(uri)              [6 internal bypasses discovered]
+  → isNativeLandingPage()         [bypass C — post-check override]
+  → checkForBiz()                 [bypass D — business logic override]
+}
+```
+
+**Grand total: 10 bypass paths** (4 in verify() + 6 in allowLaunch())
+
+### Critical: SchemeNeedVerify Master Switch
+
+```smali
+const-string v0, "SchemeNeedVerify"
+invoke-virtual {p0, v0}, ...getStringFromSp(...)
+invoke-virtual {p0, v0}, ...isNeedVerify(...)
+if-eqz v0, :cond_2    // if needVerify=false → skip ALL checks
+const-string/jumbo v1, "needVerify false"
+return v3              // return 1 (ALLOW)
+```
+
+If `SchemeNeedVerify` is set to false in SharedPreferences (server-configurable),
+ALL URL scheme verification is disabled. This is a **global kill switch** for
+the entire FlowCustoms protection layer.
