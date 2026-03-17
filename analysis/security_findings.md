@@ -381,3 +381,22 @@ Java: vm.invokeAVMP("sign", byte[].class, args...)
   → Native: sgmiddletier dispatches to AVMP bytecode interpreter
   → Returns: opaque signature bytes
 ```
+
+## AVMP Sign: VM Created, Invoke Blocked by stnel Limitation
+
+### Successful
+- `doCommand(70201, ["mwua", "sgcipher"])` → VM ID (Long) ✅
+- VM instance created successfully in emulator environment
+- VM IDs observed: -5476376623598933845, -5476376623807317487, -5476376624574623528
+
+### Blocked
+- `doCommand(70202, [vmId, "sign", byte[].class, args])` → `expected a pointer`
+- Root cause: stnel's JS-to-JNI bridge cannot serialize `java.lang.Class` objects inside `Object[]` arrays
+- Java `Method.invoke()` reflection also blocked by same limitation
+- This is a **stnel/frida engine limitation**, not a SecurityGuard protection
+
+### Workaround Options
+1. Use frida's Python bindings instead of JS (`frida.core.Script.exports`)
+2. Compile a custom stnel gadget that calls invokeAVMP from native code
+3. Use Xposed framework instead of stnel (full Java-level API access)
+4. Hook at the native C level inside sgmiddletier.so after runtime dump
