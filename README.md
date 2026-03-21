@@ -1,5 +1,13 @@
 # Alipay SecurityGuard SDK — Complete Security Analysis
 
+> **Alipay Mobile Payment Attack Surface — The Full-Stack Analysis by [Innora AI](https://innora.ai)**
+>
+> | Layer | Repository | Findings |
+> |-------|-----------|----------|
+> | Runtime | [alipay-deeplink-research](https://github.com/sgInnora/alipay-deeplink-research) | 17 vulnerabilities, CVSS 9.3 |
+> | SDK | **[alipay-securityguard-analysis](https://github.com/sgInnora/alipay-securityguard-analysis)** (this repo) | 9 CVEs, AVMP VM bypass, 97% unprotected APIs |
+> | Cryptography | [hash-collision-lab](https://github.com/sgInnora/hash-collision-lab) | 15 PoCs, IACR ePrint [2026/526](https://eprint.iacr.org/2026/526) |
+
 > **Disclaimer**: This research is conducted for educational and security research purposes only. The author assumes no liability for any direct or indirect damages arising from the use of information in this repository. All trademarks are property of their respective owners. Findings were reported to the vendor via responsible disclosure.
 
 ## Executive Summary
