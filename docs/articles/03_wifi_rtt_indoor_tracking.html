@@ -28,7 +28,7 @@
 
 <!-- E. 作者声明 -->
 <blockquote style="background: #fffaf0; border-left: 4px solid #e67e22; padding: 18px 22px; margin: 20px 0; border-radius: 0 4px 4px 0">
-<p style="margin: 0; font-size: 15px; line-height: 1.8; color: #555">我想跟那些骂我的人说句心里话。你不看代码、不看文章、不懂技术，拿着几百块就帮支付宝洗地——但你想过没有，你爸妈在家里走的每一步，你老婆孩子的每个动作，都可能被头顶那面<strong style="color: #c0392b">"魔镜"精确到厘米，实时上传</strong>？我人在海外，支付宝账户已经被冻结了，我也删了APP，以后绝不会再用。15个CVE漏洞、国际论文、7个国家立案，这些东西我造不出来，也没必要造。不为我自己，为了你的家人，请你理性一点，带点脑子，去看看代码和文章里写的到底是什么。这件事，应该让更多人知道。<strong style="color: #c0392b">至少，让你的家人知道，再决定要不要卸载支付宝。</strong></p>
+<p style="margin: 0; font-size: 15px; line-height: 1.8; color: #555">我想跟那些骂我的人说句心里话。你不看代码、不看文章、不懂技术，拿着几百块就帮支付宝洗地——但你想过没有，你爸妈在家里走的每一步，你老婆孩子的每个动作，都可能被头顶那面<strong style="color: #c0392b">"魔镜"精确到厘米，实时上传</strong>？我人在海外，支付宝账户已经被冻结了，我也删了APP，以后绝不会再用。15个CVE漏洞、国际论文、7个国际监管机构立案，这些东西我造不出来，也没必要造。不为我自己，为了你的家人，请你理性一点，带点脑子，去看看代码和文章里写的到底是什么。这件事，应该让更多人知道。<strong style="color: #c0392b">至少，让你的家人知道，再决定要不要卸载支付宝。</strong></p>
 </blockquote>
 
 <!-- F. 数据卡 -->
@@ -78,7 +78,7 @@
 
 <p style="margin: 16px 0; line-height: 1.75">本来这技术是留给仓库机器人、AGV小车的，让它们别撞货架。结果支付宝把它塞进了<strong style="color: #E06C75">支付APP</strong>。</p>
 
-<p style="margin: 16px 0; line-height: 1.75"><strong style="color: #1a252f">灵魂拷问</strong>：一个用来扫码付钱的工具，需要知道你在收银台左侧1米还是右侧2米？<br/><strong style="color: #E06C75">答</strong>：需要，因为它要在你走进洗手间那一刻，就把 <code style="font-family: 'Fira Code', Consolas, monospace; font-size: 14px; background: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 4px">lbsInfo+userId</code> 打包上报，推送广告："附近50米有纸品优惠券哦"。</p>
+<p style="margin: 16px 0; line-height: 1.75"><strong style="color: #1a252f">灵魂拷问</strong>：一个用来扫码付钱的工具，需要知道你在收银台左侧1米还是右侧2米？<br/><strong style="color: #E06C75">答</strong>：代码显示，推送注册时PushLBSHelper会将所有WiFi AP的BSSID和信号强度绑定userId上报（<code style="font-family: 'Fira Code', Consolas, monospace; font-size: 14px; background: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 4px">pushInit.lbsInfo = b</code>，RegisterTask.java:97）。至于这些数据被用于什么目的，支付宝隐私政策未明确说明。</p>
 
 <p style="margin: 16px 0; line-height: 1.75"><strong style="color: #1a252f">灵魂拷问二</strong>：为什么一家金融科技公司，对室内米级精确定位的渴望，超过了所有地图和导航APP的总和？</p>
 
@@ -147,7 +147,7 @@
 
 <div style="background: #1a1a2e; border-radius: 8px; padding: 15px; margin: 16px 0; color: #a8b2d1; font-family: 'Fira Code', monospace; font-size: 13px; overflow-x: auto; white-space: pre-wrap; line-height: 1.5">this.bssid = NetworkStatusHelper.getWifiBSSID();  // 每次HTTP请求都塞header</div>
 
-<p style="margin: 16px 0; line-height: 1.75"><strong style="color: #E06C75">翻译</strong>：你后面每点一次"查看账单"，<strong style="color: #E06C75">BSSID</strong>都躺在TCP Option里，<strong style="color: #E06C75">TCP+TLS也挡不住</strong>，服务器实时知道你在<strong style="color: #E06C75">哪个AP、哪层楼、哪片区域</strong>。</p>
+<p style="margin: 16px 0; line-height: 1.75"><strong style="color: #E06C75">翻译</strong>：你后面每点一次"查看账单"，<strong style="color: #E06C75">BSSID</strong>被嵌入请求统计字段，随网络请求一起上报。服务器实时掌握你连接的<strong style="color: #E06C75">WiFi接入点位置</strong>。</p>
 
 <p style="margin: 16px 0; line-height: 1.75"><strong style="color: #1a252f">灵魂拷问三</strong>：如果连一次普通的HTTP请求都要夹带地理位置"私货"，支付宝到底在<strong style="color: #E06C75">怕</strong>什么？怕用户失踪，还是怕广告投放不够"精准"？</p>
 
@@ -247,7 +247,7 @@
 <td style="padding: 9px 12px; border: 1px solid #e8e8e8">基站+蓝牙</td>
 <td style="padding: 9px 12px; border: 1px solid #e8e8e8">169+160</td>
 <td style="padding: 9px 12px; border: 1px solid #e8e8e8">50–100 m</td>
-<td style="padding: 9px 12px; border: 1px solid #e8e8e8; font-size: 13px; color: #666">关机都能扫小区</td>
+<td style="padding: 9px 12px; border: 1px solid #e8e8e8; font-size: 13px; color: #666">后台持续扫描</td>
 </tr>
 </tbody>
 </table>
@@ -271,7 +271,7 @@
 </blockquote>
 
 <p style="margin: 16px 0; line-height: 1.75"><strong style="color: #1a252f">支付场景目的</strong>：完成收付款。</p>
-<p style="margin: 16px 0; line-height: 1.75"><strong style="color: #E06C75">支付宝实际收集</strong>：</p>
+<p style="margin: 16px 0; line-height: 1.75"><strong style="color: #E06C75">以1-2米精度为例，支付宝理论上可获取</strong>：</p>
 
 <ul style="margin: 16px 0; padding-left: 22px; line-height: 1.75">
 <li style="margin-bottom: 8px">你在<strong style="color: #E06C75">男厕隔间1</strong>还是<strong style="color: #E06C75">女厕隔间2</strong>；</li>
