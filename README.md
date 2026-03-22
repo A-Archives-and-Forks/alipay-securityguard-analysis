@@ -214,6 +214,33 @@ GPLv3 — See [LICENSE](LICENSE) for details.
 
 *This research demonstrates that security through obscurity is not security. The complete SecurityGuard architecture was reversed through standard static analysis techniques, proving that client-side security controls alone cannot protect a payment application.*
 
+
+## Censorship Record
+
+Between March 15–20, 2026, **8 research articles** documenting these vulnerabilities were
+force-deleted from WeChat (China's largest social platform) at the request of Ant Group's
+law firm, Beijing Geyun Law Firm. The deletions occurred in two waves:
+
+**Wave 1 (March 15):** 4 articles deleted — whitelist bypass analysis, legal complaint rebuttal,
+GPS exfiltration report, and the "gag order rejected" follow-up.
+
+**Wave 2 (March 20):** 4 more articles deleted — IACR paper announcement, 1095-app surveillance
+list analysis, formal CAC complaint, and SecurityGuard SDK reverse engineering.
+
+The initial complaint citing "reputation infringement" was **rejected by WeChat's own review team**.
+The articles were subsequently removed after the complaint was resubmitted under China's
+Cybersecurity Law — with no specific legal provision cited and no appeal channel provided.
+
+This research has been independently validated by:
+- **IACR**: Academic paper accepted ([eprint.iacr.org/2026/526](https://eprint.iacr.org/2026/526))
+- **MITRE**: 18 CVE IDs requested across 4 tickets (#2005801, #2010319, #2011320, #2011322)
+- **12+ countries**: Regulatory agencies across 12+ jurisdictions have confirmed receipt
+- **Packet Storm Security**: Advisory #217089 published
+
+Full censorship timeline with evidence: [innora.ai/zfb/article_censorship.html](https://innora.ai/zfb/article_censorship.html)
+
+**Readers are encouraged to fork this repository as backup against further takedown attempts.**
+
 ## Legal Notice
 
 This repository contains **original security research analysis** and **machine-generated pseudocode** (via Ghidra/radare2 decompilation). It does NOT contain original source code, copyrighted binaries, or trade secrets. The decompiled pseudocode is included under security research fair use (DMCA §1201(j), EU Directive 2009/24/EC Art. 6) for the purpose of identifying and documenting security vulnerabilities affecting over 1 billion users.
