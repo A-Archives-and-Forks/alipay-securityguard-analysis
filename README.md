@@ -34,7 +34,32 @@ A comprehensive reverse engineering analysis of the SecurityGuard SDK embedded i
 
 ## CVE References
 
-9 CVEs submitted to MITRE (Ticket #2005801), pending assignment:
+**28 CVEs** submitted to MITRE across 6 tickets, pending assignment.
+
+### Batch-3 (2026-03-23) — 10 New CVEs
+
+| # | Vulnerability | CWE | CVSS | Ticket |
+|---|--------------|-----|------|--------|
+| CVE-10 | PatchProxy: 146,173 Remotely Replaceable Methods | CWE-494 | 9.8 | #2012246 |
+| CVE-11 | Payment Password Verification Bypass (163 hot-patch points) | CWE-287 | 9.1 | #2012246 |
+| CVE-12 | Signature Verification MD5 Cache Collision Bypass | CWE-347 | 8.1 | #2012246 |
+| CVE-13 | Remote Code Execution via Embedded Lua VM | CWE-94 | 9.8 | #2012250 |
+| CVE-14 | Remote Code Execution via DynamicBundle Class Loading | CWE-494 | 8.1 | #2012250 |
+| CVE-15 | DCEP (Digital Yuan) Wallet — No Bridge Access Control | CWE-862 | 7.5 | #2012254 |
+| CVE-16 | Bank Card Binding — No Bridge Access Control | CWE-862 | 7.5 | #2012254 |
+| CVE-17 | Privacy Framework Remotely Controllable (39 PatchProxy hooks) | CWE-284 | 7.5 | #2012254 |
+| CVE-18 | Cross-App Device ID Exposure via Exported ContentProvider | CWE-200 | 6.5 | #2012254 |
+| CVE-19 | Server-Controlled Data Collection Without User Consent | CWE-284 | 7.5 | #2012254 |
+
+### Batch-1 (2026-03-19) — 3 CVEs (Ticket #2010319)
+
+| # | Vulnerability | CWE | CVSS |
+|---|--------------|-----|------|
+| CVE-A | RPC Content Encryption Default Disabled | CWE-311 | 7.5 |
+| CVE-B | Server-Controlled SM4 Encryption Downgrade | CWE-326 | 7.5 |
+| CVE-C | Hardcoded HTTP Fallback for Telemetry | CWE-319 | 5.9 |
+
+### Original (2026-03-12) — 9 CVEs (Ticket #2005801)
 
 | # | Vulnerability | CWE | CVSS |
 |---|--------------|-----|------|
