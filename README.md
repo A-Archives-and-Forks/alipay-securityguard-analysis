@@ -1,5 +1,7 @@
 # Alipay SecurityGuard SDK — Architecture & Privacy Analysis
 
+[![DOI](https://zenodo.org/badge/doi/10.5281%2Fzenodo.19186848.svg)](https://zenodo.org/records/19186848)
+
 > **Alipay Mobile Payment Attack Surface — The Full-Stack Analysis by [Innora AI](https://innora.ai)**
 >
 > | Layer | Repository | Findings |
@@ -191,6 +193,8 @@ Archived evidence: IPFS CID `QmcAsSB84Kw7ZmKDqrQMZB1ig6Q4YpHARzv2jGv1tDhwob`
 Relevant data protection and financial regulators in multiple jurisdictions have been notified and have confirmed receipt. Details are not published here to avoid interfering with ongoing regulatory processes.
 
 ## Related Resources
+
+- **Zenodo Archive (DOI)**: [10.5281/zenodo.19186848](https://zenodo.org/records/19186848)
 
 - **Full technical report**: [innora.ai/zfb/](https://innora.ai/zfb/)
 - **Vendor response documentation**: [innora.ai/zfb/article_censorship.html](https://innora.ai/zfb/article_censorship.html)
